@@ -82,8 +82,8 @@ class morphology{
 	void consolePrettyPrint(string array){
 		if(array == "imgAry"){
 			cout<<"imgAry:"<<endl;
-			for(int row = 0; row<numRowsImg + rowFrameSize; row++){
-				for(int col = 0; col < numColsImg + colFrameSize; col++){
+			for(int row = rowFrameSize/2; row<numRowsImg + rowFrameSize/2; row++){
+				for(int col = colFrameSize/2; col < numColsImg + colFrameSize/2; col++){
 					if(imgAry[row][col]==1)
 						cout<<imgAry[row][col]<<" ";
 					else cout<<"  ";
@@ -104,8 +104,8 @@ class morphology{
 		}
 		if(array == "morphAry"){
 			cout<<"morphAry:"<<endl;
-			for(int row = 0; row<numRowsImg + rowFrameSize; row++){
-				for(int col = 0; col < numColsImg + colFrameSize; col++){
+			for(int row = rowFrameSize/2; row<numRowsImg + rowFrameSize/2; row++){
+				for(int col = colFrameSize/2; col < numColsImg + colFrameSize/2; col++){
 					if(morphAry[row][col]==1)
 						cout<<morphAry[row][col]<<" ";
 					else cout<<"  ";
@@ -116,8 +116,8 @@ class morphology{
 		}
 	}
 	void outFilePrettyPrint(ofstream& file){
-		for(int row = 0; row<numRowsImg + rowFrameSize; row++){
-			for(int col = 0; col < numColsImg + colFrameSize; col++){
+		for(int row = rowFrameSize/2; row<numRowsImg + rowFrameSize/2; row++){
+			for(int col = colFrameSize/2; col < numColsImg + colFrameSize/2; col++){
 				if(morphAry[row][col]==1)file<<morphAry[row][col]<<" ";
 				else file<<"  ";
 			}
