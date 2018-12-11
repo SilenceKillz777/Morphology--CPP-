@@ -9,6 +9,7 @@ class morphology{
 	int numRowsStructElem, numColsStructElem, minStructElem, maxStructElem;
 	int rowOrigin, colOrigin;
 	int rowFrameSize, colFrameSize;
+	int temp;
 	int** imgAry;
 	int** morphAry;
 	int** structElemAry;
@@ -47,8 +48,7 @@ class morphology{
 	void loadImage(string file){
 		ifstream in;
 		in.open(file.c_str());
-		int numRows,numCols,minVal,maxVal;
-		in>>numRows>>numCols>>minVal>>maxVal;
+		in>>temp>>temp>>temp>>temp;
 		for(int i = rowFrameSize/2; i < numRowsImg + rowFrameSize/2; i++){
 			for(int j = colFrameSize/2; j < numColsImg + colFrameSize/2; j++){
 				in>>imgAry[i][j];
@@ -69,7 +69,6 @@ class morphology{
 	void loadStruct(string file){
 		ifstream in;
 		in.open(file.c_str());
-		int temp;
 		in>>temp>>temp>>temp>>temp;
 		in>>rowOrigin>>colOrigin;
 		for(int i = 0; i < numRowsStructElem; i++){
@@ -271,9 +270,10 @@ int main(int argc, char* argv[]){
 		morph.consolePrettyPrint("structElemAry");
 		while(choice!='Q'){
 			morph.initMorphAry();
-			morph.loadImage(fileName1);
 			morph.consoleRequest(choice);
 			morph.operation(choice,outFile1);
+			morph.initImgAry();
+			morph.MorphToImg();
 		}
 	}
 	else cout<<"Couldn't retrieve data.";
